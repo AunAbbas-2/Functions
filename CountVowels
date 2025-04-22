@@ -1,0 +1,32 @@
+#include <iostream>
+#include <string>
+#include<vector>
+using namespace std;
+
+int countVowels(string &s)
+{
+    int count = 0;
+    vector<char> vowel = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'};
+    for (size_t i = 0; i < s.size(); i++)
+    {
+        for (size_t j = 0; j < vowel.size(); j++)
+        {
+            if (s[i] == vowel[j])
+            {
+                count++;
+            }
+        }
+    }
+
+    return count;
+}
+
+int main()
+{
+    string s;
+    cout << "Enter your sentence: ";
+    getline(cin, s);
+
+    cout << "The count of vowel in this string is: " << countVowels(s) << endl;
+    return 0;
+}
