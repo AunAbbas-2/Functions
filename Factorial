@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+long long factorial(long long n)
+{
+    long long factorial = 1;
+    for (int i = n; i > 0; i--)
+    {
+        factorial = factorial * i;
+    }
+
+    return factorial;
+}
+
+int main()
+{
+    int n;
+    cout << "Enter your number: ";
+    cin >> n;
+    int zerofact = 1;
+    if (n == 0)
+    {
+        cout << zerofact;
+    }
+    if (n < 0)
+    {
+        cout << "Invalid number enter again." << endl;
+    }
+    cout << "The factorial value of your number is " << factorial(n) << endl;
+    while (factorial(n) > 0)
+    {
+        n++;
+    }
+    cout << "The number at which factorial will overflow is " << n << endl;
+    return 0;
+}
