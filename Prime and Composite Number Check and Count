@@ -1,0 +1,81 @@
+#include<iostream>
+using namespace std;
+
+bool isprimeNumber(int n){
+    bool isPrime = true;
+    if(n == 0 || n == 1){
+        cout<<"Neither Prime nor Composite";
+    }
+    for(int i = 2;i<n;i++){
+        if(n % i == 0){
+            isPrime = false;
+        }
+    }
+
+    return isPrime;
+}
+
+bool iscompositeNumber(int n){
+    bool isComposite = false;
+    int count = 0;
+    if(n == 0 || n == 1){
+        cout<<"Neither Prime nor Composite";
+    }
+    for(int i = 2;i<n;i++){
+        if(n % i == 0){
+            count ++;
+        }
+    }
+    if(count >= 1){
+        isComposite = true;
+    }
+
+    return isComposite;
+}
+
+int countnumberofPrimes(int start, int end){
+    int count = 0;
+    for(int i = start;i<=end;i++){
+        if(isprimeNumber(i)){
+            count ++;
+        }
+    }
+    return count;
+}
+
+int countnumberofComposites(int start, int end){
+    int count = 0;
+    for(int i = start;i<=end;i++){
+        if(iscompositeNumber(i)){
+            count ++;
+        }
+    }
+    return count;
+}
+
+int main(){
+    int n;
+    cout<<"Enter the value of n for which you want to check the prime number condition and Composite number condition: ";
+    cin>>n;
+    int start, end;
+    cout<<"Enter the start from where you want to count the number of primes and composite: ";
+    cin>>start;
+    cout<<"Enter the endpoint: ";
+    cin>>end;
+
+    
+    if(n <= 0){
+        cout<<"Invalid number enter again."<<endl;
+    }
+    cout<<"Is the entered number Prime ?"<<endl;
+    cout<<boolalpha<<isprimeNumber(n)<<endl;
+    cout<<"Is the entered number Composite ?"<<endl;
+    cout<<boolalpha<<iscompositeNumber(n)<<endl;
+ 
+    cout<<"The number of prime numbers in between "<<start<<" and "<<end<<" is: "<<endl;
+    cout<<countnumberofPrimes(start, end)<<endl;
+    cout<<"The number of Composite numbers in between "<<start<<" and "<<end<<" is: "<<endl;
+    cout<<countnumberofComposites(start, end)<<endl;
+
+    return 0;
+}
