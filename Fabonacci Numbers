@@ -1,0 +1,37 @@
+#include<iostream>
+using namespace std;
+
+int Fabonacci(int n){
+    if(n == 0){
+        return 0;
+    }
+    if(n == 1){
+        return 1;
+    }
+    else{
+        return Fabonacci(n-1) + Fabonacci(n-2);
+    }
+}
+
+void printFabonacci(int i, int n){
+    if(i >= n) return;
+
+    cout<<Fabonacci(i)<<" ";
+    printFabonacci(i+1,n);
+}
+
+int main(){
+    int n;
+    cout<<"How many terms you want: ";
+    cin>>n;
+
+    if(n <= 0){
+        cout<<"Error, enter positive numbers."<<endl;
+    }
+    else{
+        cout << "Fabonacci series of "<<n<<" numbers is: "<<endl;
+        printFabonacci(0, n);
+    }
+
+    return 0;
+}
